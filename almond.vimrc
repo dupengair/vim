@@ -55,6 +55,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/DfrankUtil'
+Plugin 'vim-scripts/vimprj'
 call vundle#end()     " 插件列表结束
 filetype plugin indent on
 filetype plugin on
@@ -75,7 +78,7 @@ set autochdir
 
 " ******************** tagbar ****************************** “
 let tagbar_left=1                           " 设置 tagbar 子窗口的位置出现在主编辑区的左边 
-nnoremap <Leader>ilt :TagbarToggle<cr>      " 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
+nnoremap <Leader>ils :TagbarToggle<cr>      " 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
 let tagbar_width=32                         " 设置标签子窗口的宽度 
 let g:tagbar_compact=1                      " tagbar 子窗口中不显示冗余帮助信息 
 " 设置 ctags 对哪些代码标识符生成标签
