@@ -58,6 +58,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'vim-scripts/DfrankUtil'
 Plugin 'vim-scripts/vimprj'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 call vundle#end()     " 插件列表结束
 filetype plugin indent on
 filetype plugin on
@@ -115,3 +116,18 @@ let g:tagbar_type_cpp = {
          \ 'union'     : 'u'
      \ }
      \ }
+
+" ******************** tagbar ****************************** “
+" 设置插件 indexer 调用 ctags 的参数
+" 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
+" 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
+let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
+
+" ******************** DoxygenToolkit ****************************** “
+" 文件首行，输入:DoxAuthor将插入文件头注释骨架
+" 数据结构声明或函数声明的第一行，运行:Dox，将生成数据结构或函数的注释骨架
+let g:DoxygenToolkit_authorName="dupengair@163.net" 
+
+" ******************** man.vim ****************************** “
+"添加man窗口
+:source $VIMRUNTIME/ftplugin/man.vim
