@@ -59,6 +59,8 @@ Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'vim-scripts/DfrankUtil'
 Plugin 'vim-scripts/vimprj'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'dyng/ctrlsf.vim'
 call vundle#end()     " 插件列表结束
 filetype plugin indent on
 filetype plugin on
@@ -78,6 +80,7 @@ set tags=tags;
 set autochdir
 
 " ******************** tagbar ****************************** “
+" Ctrl+] 跳转到定义; Ctrl+t 跳回; Ctrl+w 切换窗口
 let tagbar_left=1                           " 设置 tagbar 子窗口的位置出现在主编辑区的左边 
 nnoremap <Leader>ils :TagbarToggle<cr>      " 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
 let tagbar_width=32                         " 设置标签子窗口的宽度 
@@ -117,8 +120,6 @@ let g:tagbar_type_cpp = {
      \ }
      \ }
 
-" ******************** tagbar ****************************** “
-" 设置插件 indexer 调用 ctags 的参数
 " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
 " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
@@ -129,5 +130,14 @@ let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v 
 let g:DoxygenToolkit_authorName="dupengair@163.net" 
 
 " ******************** man.vim ****************************** “
-"添加man窗口
+" 添加man窗口
 :source $VIMRUNTIME/ftplugin/man.vim
+
+" ******************** YCM ************************ “
+nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR> " 只能是 #include 或已打开的文件
+
+" ******************** CtrlSF ************************ “
+" 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
+nnoremap <Leader>sp :CtrlSF<CR>
+
