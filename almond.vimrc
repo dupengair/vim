@@ -66,20 +66,20 @@ filetype plugin indent on
 filetype plugin on
 
 
-" ******************** vim-indent-guides ****************** “
+" >>>>>>>>>>>>>>>>>>>> [ vim-indent-guides ]
 let g:indent_guides_enable_on_vim_startup=1 " 随 vim 自启动
 let g:indent_guides_start_level=2           " 从第二层开始可视化显示缩进
 let g:indent_guides_guide_size=1            " 色块宽度
 
-" ******************** vim-fswitch ************************ “
+" >>>>>>>>>>>>>>>>>>>> [ vim-fswitch ]
 nmap <silent> <Leader>sw :FSHere<cr>        " *.cpp 和 *.h 间切换
 
-" ******************** ctags ****************************** “
+" >>>>>>>>>>>>>>>>>>>> [ ctags ]
 set tags+=~/.vim/systags
 set tags=tags;
 set autochdir
 
-" ******************** tagbar ****************************** “
+" >>>>>>>>>>>>>>>>>>>> [ tagbar ]
 " Ctrl+] 跳转到定义; Ctrl+t 跳回; Ctrl+w 切换窗口
 let tagbar_left=1                           " 设置 tagbar 子窗口的位置出现在主编辑区的左边 
 nnoremap <Leader>ils :TagbarToggle<cr>      " 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
@@ -124,20 +124,20 @@ let g:tagbar_type_cpp = {
 " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
 
-" ******************** DoxygenToolkit ****************************** “
+" >>>>>>>>>>>>>>>>>>> [ DoxygenToolkit ]
 " 文件首行，输入:DoxAuthor将插入文件头注释骨架
 " 数据结构声明或函数声明的第一行，运行:Dox，将生成数据结构或函数的注释骨架
 let g:DoxygenToolkit_authorName="dupengair@163.net" 
 
-" ******************** man.vim ****************************** “
+" >>>>>>>>>>>>>>>>>>> [ man.vim ]
 " 添加man窗口
 :source $VIMRUNTIME/ftplugin/man.vim
 
-" ******************** YCM ************************ “
+" >>>>>>>>>>>>>>>>>>> [ YCM ] 
 nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>jd :YcmCompleter GoToDefinition<CR> " 只能是 #include 或已打开的文件
 
-" ******************** CtrlSF ************************ “
+" >>>>>>>>>>>>>>>>>>> [ CtrlSF ]
 " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
 nnoremap <Leader>sp :CtrlSF<CR>
 
