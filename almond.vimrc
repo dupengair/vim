@@ -3,6 +3,7 @@ set number			  " 显示行号
 "set relativenumber    " 相对行号
 set helplang=cn		  " 中文help
 set cursorline        " 突出显示当前行
+set mouse=a           " 支持鼠标
 set cursorcolumn	  " 高亮显示当前列  
 set ruler             " 打开状态栏标尺
 set nobackup          " 覆盖文件时不备份
@@ -61,6 +62,10 @@ Plugin 'vim-scripts/vimprj'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'SirVer/ultisnips'
 call vundle#end()     " 插件列表结束
 filetype plugin indent on
 filetype plugin on
@@ -141,3 +146,26 @@ nnoremap <leader>jd :YcmCompleter GoToDefinition<CR> " 只能是 #include 或已
 " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
 nnoremap <Leader>sp :CtrlSF<CR>
 
+" >>>>>>>>>>>>>>>>>>> [ vim-multiple-cursors ]
+" Default mapping, v to begin, c to modify
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" >>>>>>>>>>>>>>>>>>> [ NERD Commenter ]
+" <leader>cc: 添加注释, <leader>cu: 取消注释
+
+" >>>>>>>>>>>>>>>>>>> [ Drawit ]
+" :DIstart 开始绘图  :DIstop 结束绘图
+" ^    上箭头      v    下箭头     >   右箭头       <    左箭头
+" PgUp 右上斜线    PgDn 右下斜线   End 左下斜线     Home 左上斜线
+nnoremap <leader>Di :DIstart<CR>
+nnoremap <leader>Ds :DIstop<CR>
+
+" >>>>>>>>>>>>>>>>>>> [ UltiSnips ]
+let g:UltiSnipsSnippetDirectories=["dupsnippets"]
+" UltiSnips 的 tab 键与 YCM 冲突，重新设定
+let g:UltiSnipsExpandTrigger="<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
