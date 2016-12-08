@@ -169,3 +169,9 @@ let g:UltiSnipsSnippetDirectories=["dupsnippets"]
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
+
+" >>>>>>>>>>>>>>>>>>> [ OmniCppComplete ]
+" ctrl-x ctrl-o: 标签补全 ctrl-x ctrl-i: 文件名补全 ctrl-x ctrl-f: 路径补全
+let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
+:set tags+=/usr/include/c++/6/stdcpp.tags                     " C++ STL库的tag文件
+:set tags+=/usr/include/sys.tags                              " Linux内核tag文件
