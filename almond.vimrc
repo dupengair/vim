@@ -175,3 +175,20 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
 :set tags+=/usr/include/c++/6/stdcpp.tags                     " C++ STL库的tag文件
 :set tags+=/usr/include/sys.tags                              " Linux内核tag文件
+
+" >>>>>>>>>>>>>>>>>>> [ YouCompleteMe ]
+highlight Pmenu term=bold ctermfg=11 gui=bold guifg=Yellow          " 菜单颜色
+highlight PmenuSel term=reverse cterm=reverse ctermfg=10 ctermbg=7 gui=bold  " 选中项
+let g:ycm_complete_in_comments=1                                    " 补全功能在注释中同样有效
+let g:ycm_confirm_extra_conf=0                                      " 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
+let g:ycm_collect_identifiers_from_tags_files=1                     " 开启 YCM 标签补全引擎
+" :set tags+=/usr/include/c++/6/stdcpp.tags                         " C++ STL库的tag文件
+" :set tags+=/usr/include/sys.tags                                  " Linux内核tag文件
+inoremap <leader>; <C-x><C-o>                                       " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
+set completeopt-=preview                                            " 补全内容不以分割子窗口形式出现，只显示补全列表
+let g:ycm_min_num_of_chars_for_completion=1                         " 从第一个键入字符就开始罗列匹配项
+let g:ycm_cache_omnifunc=0                                          " 禁止缓存匹配项，每次都重新生成匹配项
+let g:ycm_seed_identifiers_with_syntax=1                            " 语法关键字补全         
+
+
+
