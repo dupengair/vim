@@ -66,6 +66,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'SirVer/ultisnips'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
 call vundle#end()     " 插件列表结束
 filetype plugin indent on
 filetype plugin on
@@ -132,11 +134,12 @@ let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v 
 " >>>>>>>>>>>>>>>>>>> [ DoxygenToolkit ]
 " 文件首行，输入:DoxAuthor将插入文件头注释骨架
 " 数据结构声明或函数声明的第一行，运行:Dox，将生成数据结构或函数的注释骨架
-let g:DoxygenToolkit_authorName="dupengair@163.net" 
+let g:DoxygenToolkit_authorName="dupengair@163.com" 
 
 " >>>>>>>>>>>>>>>>>>> [ man.vim ]
 " 添加man窗口
 :source $VIMRUNTIME/ftplugin/man.vim
+nmap  <Leader>man :Man <cword><CR>
 
 " >>>>>>>>>>>>>>>>>>> [ YCM ] 
 nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
@@ -173,8 +176,8 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
 " >>>>>>>>>>>>>>>>>>> [ OmniCppComplete ]
 " ctrl-x ctrl-o: 标签补全 ctrl-x ctrl-i: 文件名补全 ctrl-x ctrl-f: 路径补全
 let OmniCpp_DefaultNamespaces = ["_GLIBCXX_STD"]
-:set tags+=/usr/include/c++/6/stdcpp.tags                     " C++ STL库的tag文件
-:set tags+=/usr/include/sys.tags                              " Linux内核tag文件
+set tags+=/usr/include/c++/6/stdcpp.tags                     " C++ STL库的tag文件
+set tags+=/usr/include/sys.tags                              " Linux内核tag文件
 
 " >>>>>>>>>>>>>>>>>>> [ YouCompleteMe ]
 highlight Pmenu term=bold ctermfg=11 gui=bold guifg=Yellow          " 菜单颜色
@@ -182,13 +185,25 @@ highlight PmenuSel term=reverse cterm=reverse ctermfg=10 ctermbg=7 gui=bold  " �
 let g:ycm_complete_in_comments=1                                    " 补全功能在注释中同样有效
 let g:ycm_confirm_extra_conf=0                                      " 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
 let g:ycm_collect_identifiers_from_tags_files=1                     " 开启 YCM 标签补全引擎
-" :set tags+=/usr/include/c++/6/stdcpp.tags                         " C++ STL库的tag文件
-" :set tags+=/usr/include/sys.tags                                  " Linux内核tag文件
+" set tags+=/usr/include/c++/6/stdcpp.tags                         " C++ STL库的tag文件
+" set tags+=/usr/include/sys.tags                                  " Linux内核tag文件
 inoremap <leader>; <C-x><C-o>                                       " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
 set completeopt-=preview                                            " 补全内容不以分割子窗口形式出现，只显示补全列表
 let g:ycm_min_num_of_chars_for_completion=1                         " 从第一个键入字符就开始罗列匹配项
 let g:ycm_cache_omnifunc=0                                          " 禁止缓存匹配项，每次都重新生成匹配项
 let g:ycm_seed_identifiers_with_syntax=1                            " 语法关键字补全         
 
+" >>>>>>>>>>>>>>>>>>> [ NERDTree ]
+" 常用操作：回车，打开选中文件；r，刷新工程目录文件列表；I（大写），显示/隐藏隐藏文件；m，出现创建/删除/剪切/拷贝操作列表
+nmap <Leader>fl :NERDTreeToggle<CR>                          " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+let NERDTreeWinSize=32                                       " 设置NERDTree子窗口宽度
+let NERDTreeWinPos="right"                                   " 设置NERDTree子窗口位置
+let NERDTreeShowHidden=0                                     " 显示隐藏文件
+let NERDTreeMinimalUI=1                                      " NERDTree 子窗口中不显示冗余帮助信息
+let NERDTreeAutoDeleteBuffer=1                               " 删除文件时自动删除文件对应 buffer
 
-
+" >>>>>>>>>>>>>>>>>>> [ MiniBufExplorer ]
+" s上下 v左右 d删除 f查找
+map <Leader>bl :MBEToggle<cr>                                " 显示/隐藏 MiniBufExplorer 窗口
+map <C-Tab> :MBEbn<cr>                                       " 正向遍历
+map <C-S-Tab> :MBEbp<cr>                                     " 逆向遍历
