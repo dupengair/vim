@@ -192,4 +192,22 @@ let g:ycm_cache_omnifunc=0                                          " 禁止缓�
 let g:ycm_seed_identifiers_with_syntax=1                            " 语法关键字补全         
 
 
+" ******************** 人生苦短，我用python ****************** “
+" >>>>>>>>>>>>>>>>>> [ PEP8 ]
+au BufNewFile,BufRead *.py
+            \ set tabstop=4
+            \ set softtabstop=4
+            \ set shiftwidth=4
+            \ set textwidth=79
+            \ set expandtab
+            \ set autoindent
+            \ set fileformat=unix
+
+" ******************** 前端 ****************** “
+au BufNewFile,BufRead *.js, *.html, *.css
+            \ set tabstop=2
+            \ set softtabstop=2
+            \ set shiftwidth=2
+
+
 
