@@ -203,6 +203,10 @@ au BufNewFile,BufRead *.py
             \ set autoindent
             \ set fileformat=unix
 
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/        " 标示不必要的空白字符
+au BufRead,BufNewFile *.py,*.pyw set encoding=utf-8
+au BufNewFile,BufRead *.py,*.pyw setf python
+
 " ******************** 前端 ****************** “
 au BufNewFile,BufRead *.js, *.html, *.css
             \ set tabstop=2
