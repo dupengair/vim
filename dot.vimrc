@@ -19,6 +19,7 @@ set hlsearch		  " 高亮显示搜索结果
 set nowrap			  " 禁止折行  
 set backspace=2		  " 回退键生效  
 set t_Co=256		  " 256色终端
+set noswapfile        " 不产生swap文件
 
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
@@ -66,6 +67,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/DrawIt'
 Plugin 'SirVer/ultisnips'
+Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
 call vundle#end()     " 插件列表结束
 filetype plugin indent on
 filetype plugin on
@@ -191,6 +194,18 @@ let g:ycm_min_num_of_chars_for_completion=1                         " 从第一�
 let g:ycm_cache_omnifunc=0                                          " 禁止缓存匹配项，每次都重新生成匹配项
 let g:ycm_seed_identifiers_with_syntax=1                            " 语法关键字补全         
 
+" >>>>>>>>>>>>>>>>>> [ NERDTree ]
+nmap <Leader>fl :NERDTreeToggle<CR>                                 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+let NERDTreeWinSize=32                                              " 设置NERDTree子窗口宽度
+let NERDTreeWinPos="right"                                          " 设置NERDTree子窗口位置
+let NERDTreeShowHidden=1                                            " 显示隐藏文件
+let NERDTreeMinimalUI=1                                             " NERDTree 子窗口中不显示冗余帮助信息
+let NERDTreeAutoDeleteBuffer=1                                      " 删除文件时自动删除文件对应 buffer
+
+" >>>>>>>>>>>>>>>>>> [ MiniBufExplorer ]
+map <Leader>bl :MBEToggle<cr>                                       " 显示/隐藏 MiniBufExplorer 窗口
+map <C-Tab> :MBEbn<cr>                                              " buffer 切换快捷键
+map <C-S-Tab> :MBEbp<cr>
 
 " ******************** 人生苦短，我用python ****************** “
 " >>>>>>>>>>>>>>>>>> [ PEP8 ]
