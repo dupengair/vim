@@ -137,7 +137,7 @@ nnoremap <leader>Di :DIstart<CR>
 nnoremap <leader>Ds :DIstop<CR>
 
 " >>>>>>>>>>>>>>>>>> [ NERDTree ]
-nmap <Leader>fl :NERDTreeToggle<CR>                                 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+nmap <Leader>ll :NERDTreeToggle<CR>                                 " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
 let NERDTreeWinSize=32                                              " 设置NERDTree子窗口宽度
 let NERDTreeWinPos="right"                                          " 设置NERDTree子窗口位置
 let NERDTreeShowHidden=1                                            " 显示隐藏文件
@@ -145,6 +145,6 @@ let NERDTreeMinimalUI=1                                             " NERDTree �
 let NERDTreeAutoDeleteBuffer=1                                      " 删除文件时自动删除文件对应 buffer
 
 " >>>>>>>>>>>>>>>>>> [ MiniBufExplorer ]
-map <Leader>bl :MBEToggle<cr>                                       " 显示/隐藏 MiniBufExplorer 窗口
+map <Leader>bb :MBEToggle<cr>                                       " 显示/隐藏 MiniBufExplorer 窗口
 map <C-Tab> :MBEbn<cr>                                              " buffer 切换快捷键
 map <C-S-Tab> :MBEbp<cr>
